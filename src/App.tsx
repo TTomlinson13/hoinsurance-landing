@@ -108,27 +108,34 @@ function App() {
           </h3>
           <p className="text-center text-gray-600 mb-12 text-lg">Protecting Florida homeowners since 1966</p>
           
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-8 rounded-2xl bg-white shadow-lg border border-gray-100">
-              <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">🏝️</span>
+          <div className="grid md:grid-cols-4 gap-6">
+            <div className="text-center p-6 rounded-2xl bg-white shadow-lg border border-gray-100">
+              <div className="w-14 h-14 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🏝️</span>
               </div>
-              <h4 className="font-bold text-xl text-teal-900 mb-3">Barrier Island Coverage</h4>
-              <p className="text-gray-600">We insure homes others won't — coastal, barrier islands, flood zones.</p>
+              <h4 className="font-bold text-lg text-teal-900 mb-2">Barrier Island Coverage</h4>
+              <p className="text-gray-600 text-sm">Coastal, barrier islands, flood zones — we cover them.</p>
             </div>
-            <div className="text-center p-8 rounded-2xl bg-white shadow-lg border border-gray-100">
-              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">🌊</span>
+            <div className="text-center p-6 rounded-2xl bg-white shadow-lg border border-gray-100">
+              <div className="w-14 h-14 bg-amber-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🏠</span>
               </div>
-              <h4 className="font-bold text-xl text-blue-800 mb-3">Flood Insurance Experts</h4>
-              <p className="text-gray-600">Private flood options often cheaper than NFIP with better coverage.</p>
+              <h4 className="font-bold text-lg text-amber-800 mb-2">Older & Difficult Homes</h4>
+              <p className="text-gray-600 text-sm">Older roofs, unique properties — we find solutions.</p>
             </div>
-            <div className="text-center p-8 rounded-2xl bg-white shadow-lg border border-gray-100">
-              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-3xl">💰</span>
+            <div className="text-center p-6 rounded-2xl bg-white shadow-lg border border-gray-100">
+              <div className="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">🌊</span>
               </div>
-              <h4 className="font-bold text-xl text-green-800 mb-3">Bundle & Save</h4>
-              <p className="text-gray-600">Combine home, flood, and auto for maximum discounts.</p>
+              <h4 className="font-bold text-lg text-blue-800 mb-2">Flood Experts</h4>
+              <p className="text-gray-600 text-sm">Private flood options often cheaper than NFIP.</p>
+            </div>
+            <div className="text-center p-6 rounded-2xl bg-white shadow-lg border border-gray-100">
+              <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">💰</span>
+              </div>
+              <h4 className="font-bold text-lg text-green-800 mb-2">Bundle & Save</h4>
+              <p className="text-gray-600 text-sm">Combine home, flood, and auto for max discounts.</p>
             </div>
           </div>
         </div>
