@@ -43,11 +43,12 @@ function App() {
                   href="https://app.usecanopy.com/c/tomlinson-and-co"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-4 px-6 rounded-xl shadow-lg transition transform hover:scale-105 text-center"
+                  className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-4 px-6 rounded-xl shadow-lg transition transform hover:scale-105 text-center relative overflow-hidden"
                 >
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs px-2 py-0.5 rounded-bl-lg font-bold">EASY!</span>
                   <span className="text-xl block mb-1">⚡</span>
-                  <span>Sync My Policy</span>
-                  <span className="block text-xs font-normal">(Fastest Way)</span>
+                  <span className="text-lg">Sync My Policy</span>
+                  <span className="block text-xs font-normal mt-1">We pull your info automatically</span>
                 </a>
                 <a 
                   href="https://hoinsurance.wufoo.com/forms/m96j1zb0kfqk62/"
@@ -67,6 +68,13 @@ function App() {
                   <span>Call Now</span>
                   <span className="block text-xs font-normal">Instant Help</span>
                 </a>
+              </div>
+              
+              {/* Sync My Policy Callout */}
+              <div className="mt-6 bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-r-lg max-w-xl">
+                <p className="text-yellow-800 text-sm">
+                  <strong>💡 Tip:</strong> Click <strong>"Sync My Policy"</strong> to securely connect your current insurance — we'll pull your coverage details automatically. No forms to fill out!
+                </p>
               </div>
             </div>
             
