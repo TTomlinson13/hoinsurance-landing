@@ -240,6 +240,24 @@ function App() {
         </div>
       </section>
 
+      {/* Bundle Auto Section */}
+      <section className="py-12 px-4 bg-blue-600">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-2xl font-bold text-white mb-3">
+            🚗 Need Auto Insurance Too?
+          </h3>
+          <p className="text-blue-100 text-lg mb-4">
+            Bundle your home and auto for even bigger savings! We shop multiple carriers to find you the best rates.
+          </p>
+          <a 
+            href="https://floridauto.com"
+            className="inline-block bg-white text-blue-700 font-bold py-3 px-8 rounded-xl shadow-lg hover:bg-gray-100 transition"
+          >
+            Get Auto Quote at FloridAuto.com →
+          </a>
+        </div>
+      </section>
+
       {/* Testimonial Section */}
       <section className="py-16 px-4 bg-teal-50">
         <div className="max-w-4xl mx-auto text-center">
@@ -247,7 +265,7 @@ function App() {
           <blockquote className="text-2xl text-gray-700 italic mb-6">
             "They found us coverage when other agents said it was impossible. Our barrier island home is finally protected, and we're paying less than we expected!"
           </blockquote>
-          <p className="text-gray-600 font-semibold">- Happy Florida Homeowner</p>
+          <p className="text-gray-600 font-semibold">— Happy Florida Homeowner</p>
         </div>
       </section>
 
