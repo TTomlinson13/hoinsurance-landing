@@ -1,8 +1,8 @@
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-teal-900 via-teal-800 to-teal-900">
+    <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-white shadow-lg">
+      <header className="bg-white shadow-lg sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 py-4 flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-bold text-teal-900">HOInsurance.com</h1>
@@ -14,87 +14,161 @@ function App() {
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="py-12 px-4">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            Florida Homeowners & Flood Insurance
-          </h2>
-          <p className="text-2xl text-yellow-300 font-semibold mb-2">
-            Coverage ANYWHERE in Florida!
-          </p>
-          <p className="text-xl text-teal-200 mb-8">
-            Yes, even on barrier islands.
-          </p>
-          
-          {/* Action Buttons */}
-          <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-8">
-            <a 
-              href="https://hoinsurance.wufoo.com/forms/m96j1zb0kfqk62/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-5 px-6 rounded-xl shadow-lg transition transform hover:scale-105 block"
-            >
-              <span className="text-2xl block mb-1">⚡</span>
-              <span className="text-lg">Sync My Policy</span>
-              <span className="block text-sm font-normal">(Fastest Way)</span>
-            </a>
-            <a 
-              href="https://hoinsurance.wufoo.com/forms/m96j1zb0kfqk62/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-white hover:bg-gray-100 text-teal-900 font-bold py-5 px-6 rounded-xl shadow-lg transition transform hover:scale-105 block"
-            >
-              <span className="text-2xl block mb-1">📝</span>
-              <span className="text-lg">Start Quote</span>
-              <span className="block text-sm font-normal">2 Minutes</span>
-            </a>
-            <a 
-              href="tel:800-616-1418"
-              className="bg-green-600 hover:bg-green-500 text-white font-bold py-5 px-6 rounded-xl shadow-lg transition transform hover:scale-105 block"
-            >
-              <span className="text-2xl block mb-1">📞</span>
-              <span className="text-lg">Call Now</span>
-              <span className="block text-sm font-normal">Instant Quote</span>
-            </a>
+      {/* Hero Section with Happy Family Image */}
+      <section className="relative bg-gradient-to-br from-teal-800 via-teal-700 to-teal-900 overflow-hidden">
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-30"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600')" }}
+        ></div>
+        
+        <div className="relative max-w-6xl mx-auto px-4 py-16 md:py-24">
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Left: Text Content */}
+            <div className="text-center md:text-left">
+              <p className="text-teal-300 font-semibold mb-2 uppercase tracking-wider">Florida Home Insurance</p>
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
+                Protect Your Florida Dream Home
+              </h2>
+              <p className="text-2xl text-yellow-300 font-semibold mb-2">
+                Coverage ANYWHERE in Florida!
+              </p>
+              <p className="text-xl text-teal-100 mb-8">
+                Yes, even on barrier islands.
+              </p>
+              
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <a 
+                  href="https://hoinsurance.wufoo.com/forms/m96j1zb0kfqk62/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-4 px-8 rounded-xl shadow-lg transition transform hover:scale-105"
+                >
+                  Get Your Free Quote →
+                </a>
+                <a 
+                  href="tel:800-616-1418"
+                  className="bg-white hover:bg-gray-100 text-teal-800 font-bold py-4 px-8 rounded-xl shadow-lg transition"
+                >
+                  📞 800-616-1418
+                </a>
+              </div>
+            </div>
+            
+            {/* Right: Happy Family Image */}
+            <div className="hidden md:block">
+              <img 
+                src="https://images.unsplash.com/photo-1581579438747-104c53d7fbc5?w=600" 
+                alt="Happy family in front of their home"
+                className="rounded-2xl shadow-2xl"
+              />
+            </div>
           </div>
         </div>
       </section>
 
+      {/* Trust Bar */}
+      <section className="bg-teal-900 py-4 px-4">
+        <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-6 text-teal-100 text-sm">
+          <span>✓ Licensed Since 1987</span>
+          <span>✓ A-Rated Carriers</span>
+          <span>✓ Same-Day Quotes</span>
+          <span>✓ Barrier Island Experts</span>
+        </div>
+      </section>
+
       {/* Features Section */}
-      <section className="py-12 px-4 bg-white">
+      <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-5xl mx-auto">
           <h3 className="text-3xl font-bold text-center text-teal-900 mb-4">
             Why Choose Us for Your Florida Home?
           </h3>
-          <p className="text-center text-gray-600 mb-10 text-lg">Protecting Florida homeowners since 1987</p>
+          <p className="text-center text-gray-600 mb-12 text-lg">Protecting Florida homeowners since 1987</p>
           
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="text-center p-6 rounded-xl bg-teal-50 border-2 border-teal-200">
-              <div className="text-4xl mb-4">🏝️</div>
-              <h4 className="font-bold text-lg text-teal-900 mb-2">Barrier Island Coverage</h4>
+            <div className="text-center p-8 rounded-2xl bg-white shadow-lg border border-gray-100">
+              <div className="w-16 h-16 bg-teal-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-3xl">🏝️</span>
+              </div>
+              <h4 className="font-bold text-xl text-teal-900 mb-3">Barrier Island Coverage</h4>
               <p className="text-gray-600">We insure homes others won't — coastal, barrier islands, flood zones.</p>
             </div>
-            <div className="text-center p-6 rounded-xl bg-blue-50 border-2 border-blue-200">
-              <div className="text-4xl mb-4">🌊</div>
-              <h4 className="font-bold text-lg text-blue-800 mb-2">Flood Insurance Experts</h4>
+            <div className="text-center p-8 rounded-2xl bg-white shadow-lg border border-gray-100">
+              <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-3xl">🌊</span>
+              </div>
+              <h4 className="font-bold text-xl text-blue-800 mb-3">Flood Insurance Experts</h4>
               <p className="text-gray-600">Private flood options often cheaper than NFIP with better coverage.</p>
             </div>
-            <div className="text-center p-6 rounded-xl bg-green-50 border-2 border-green-200">
-              <div className="text-4xl mb-4">💰</div>
-              <h4 className="font-bold text-lg text-green-800 mb-2">Bundle & Save</h4>
+            <div className="text-center p-8 rounded-2xl bg-white shadow-lg border border-gray-100">
+              <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-3xl">💰</span>
+              </div>
+              <h4 className="font-bold text-xl text-green-800 mb-3">Bundle & Save</h4>
               <p className="text-gray-600">Combine home, flood, and auto for maximum discounts.</p>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Happy Homeowners Image Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+              <img 
+                src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=600" 
+                alt="Beautiful Florida home"
+                className="rounded-2xl shadow-xl"
+              />
+            </div>
+            <div>
+              <h3 className="text-3xl font-bold text-teal-900 mb-6">
+                Your Home Deserves the Best Protection
+              </h3>
+              <p className="text-gray-600 text-lg mb-6">
+                Florida's unique weather challenges — hurricanes, flooding, tropical storms — require specialized coverage. 
+                We work with multiple A-rated carriers to find you the best protection at the best price.
+              </p>
+              <ul className="space-y-3 text-gray-700">
+                <li className="flex items-center gap-3">
+                  <span className="text-green-600 text-xl">✓</span>
+                  Coverage anywhere in Florida
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-green-600 text-xl">✓</span>
+                  Hurricane & wind coverage included
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-green-600 text-xl">✓</span>
+                  Replacement cost options
+                </li>
+                <li className="flex items-center gap-3">
+                  <span className="text-green-600 text-xl">✓</span>
+                  Same-day quotes available
+                </li>
+              </ul>
+              <a 
+                href="https://hoinsurance.wufoo.com/forms/m96j1zb0kfqk62/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block mt-8 bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition"
+              >
+                Get Your Free Quote →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Coverage Section */}
-      <section className="py-12 px-4 bg-gray-900 text-white">
+      <section className="py-16 px-4 bg-gray-900 text-white">
         <div className="max-w-5xl mx-auto">
+          <h3 className="text-3xl font-bold text-center mb-12">Comprehensive Coverage Options</h3>
           <div className="grid md:grid-cols-2 gap-8">
             {/* Homeowners */}
-            <div className="bg-gray-800 p-8 rounded-xl">
+            <div className="bg-gray-800 p-8 rounded-2xl">
               <h3 className="text-2xl font-bold text-yellow-400 mb-4">
                 🏠 Homeowners Insurance
               </h3>
@@ -111,7 +185,7 @@ function App() {
             </div>
 
             {/* Flood */}
-            <div className="bg-gray-800 p-8 rounded-xl">
+            <div className="bg-gray-800 p-8 rounded-2xl">
               <h3 className="text-2xl font-bold text-yellow-400 mb-4">
                 🌊 Flood Insurance
               </h3>
@@ -130,21 +204,42 @@ function App() {
         </div>
       </section>
 
+      {/* Testimonial Section */}
+      <section className="py-16 px-4 bg-teal-50">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="text-5xl mb-6">⭐⭐⭐⭐⭐</div>
+          <blockquote className="text-2xl text-gray-700 italic mb-6">
+            "They found us coverage when other agents said it was impossible. Our barrier island home is finally protected, and we're paying less than we expected!"
+          </blockquote>
+          <p className="text-gray-600 font-semibold">— Happy Florida Homeowner</p>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-16 px-4 bg-gradient-to-r from-green-600 to-green-700">
         <div className="max-w-3xl mx-auto text-center">
           <h3 className="text-3xl font-bold text-white mb-4">
-            Fast Phone Quotes: 800-616-1418
+            Ready to Protect Your Home?
           </h3>
           <p className="text-xl text-green-100 mb-8">
-            We can give you a phone quote INSTANTLY.
+            Get your free quote in minutes — or call for instant help.
           </p>
-          <a 
-            href="tel:800-616-1418"
-            className="inline-block bg-white text-green-700 font-bold text-xl py-4 px-10 rounded-xl shadow-lg hover:bg-gray-100 transition transform hover:scale-105"
-          >
-            📞 Call 800-616-1418 Now
-          </a>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a 
+              href="https://hoinsurance.wufoo.com/forms/m96j1zb0kfqk62/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-white text-green-700 font-bold text-xl py-4 px-10 rounded-xl shadow-lg hover:bg-gray-100 transition"
+            >
+              Get Free Quote →
+            </a>
+            <a 
+              href="tel:800-616-1418"
+              className="bg-green-800 hover:bg-green-900 text-white font-bold text-xl py-4 px-10 rounded-xl shadow-lg transition"
+            >
+              📞 800-616-1418
+            </a>
+          </div>
         </div>
       </section>
 
