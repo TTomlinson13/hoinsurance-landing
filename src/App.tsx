@@ -78,14 +78,7 @@ function App() {
               </div>
             </div>
 
-            {/* Right: Happy Family Image */}
-            <div className="hidden md:block">
-              <img
-                src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80"
-                alt=""
-                className="rounded-2xl shadow-2xl"
-              />
-            </div>
+
           </div>
         </div>
       </section>
