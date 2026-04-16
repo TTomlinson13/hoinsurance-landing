@@ -93,6 +93,21 @@ function App() {
         </div>
       </section>
 
+      {/* Carriers Section */}
+      <section className="py-10 px-4 bg-white">
+        <div className="max-w-4xl mx-auto text-center">
+          <h3 className="text-2xl font-bold text-teal-900 mb-3">
+            We Represent Over 50 Florida Home Insurance Carriers
+          </h3>
+          <p className="text-gray-600 mb-2">
+            Too many to list! We shop them all to find the best coverage at the best price for YOUR home.
+          </p>
+          <p className="text-sm text-gray-500">
+            Including carriers that specialize in barrier islands, older homes, and difficult-to-place risks.
+          </p>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="py-16 px-4 bg-gray-50">
         <div className="max-w-5xl mx-auto">
