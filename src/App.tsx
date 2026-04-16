@@ -38,20 +38,34 @@ function App() {
               </p>
               
               {/* Action Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <div className="grid sm:grid-cols-3 gap-4 justify-center md:justify-start">
+                <a 
+                  href="https://app.usecanopy.com/c/tomlinson-and-co"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-4 px-6 rounded-xl shadow-lg transition transform hover:scale-105 text-center"
+                >
+                  <span className="text-xl block mb-1">⚡</span>
+                  <span>Sync My Policy</span>
+                  <span className="block text-xs font-normal">(Fastest Way)</span>
+                </a>
                 <a 
                   href="https://hoinsurance.wufoo.com/forms/m96j1zb0kfqk62/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-4 px-8 rounded-xl shadow-lg transition transform hover:scale-105"
+                  className="bg-white hover:bg-gray-100 text-teal-800 font-bold py-4 px-6 rounded-xl shadow-lg transition text-center"
                 >
-                  Get Your Free Quote →
+                  <span className="text-xl block mb-1">📝</span>
+                  <span>Start Quote</span>
+                  <span className="block text-xs font-normal">2 Minutes</span>
                 </a>
                 <a 
                   href="tel:800-616-1418"
-                  className="bg-white hover:bg-gray-100 text-teal-800 font-bold py-4 px-8 rounded-xl shadow-lg transition"
+                  className="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg transition text-center"
                 >
-                  📞 800-616-1418
+                  <span className="text-xl block mb-1">📞</span>
+                  <span>Call Now</span>
+                  <span className="block text-xs font-normal">Instant Help</span>
                 </a>
               </div>
             </div>
