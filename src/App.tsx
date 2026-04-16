@@ -30,7 +30,7 @@ function App() {
           {/* Action Buttons */}
           <div className="grid md:grid-cols-3 gap-4 max-w-3xl mx-auto mb-8">
             <a 
-              href="https://app.usecanopy.com/c/tomlinson-and-co"
+              href="https://hoinsurance.wufoo.com/forms/m96j1zb0kfqk62/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-yellow-500 hover:bg-yellow-400 text-black font-bold py-5 px-6 rounded-xl shadow-lg transition transform hover:scale-105 block"
@@ -40,7 +40,7 @@ function App() {
               <span className="block text-sm font-normal">(Fastest Way)</span>
             </a>
             <a 
-              href="https://app.usecanopy.com/c/tomlinson-and-co"
+              href="https://hoinsurance.wufoo.com/forms/m96j1zb0kfqk62/"
               target="_blank"
               rel="noopener noreferrer"
               className="bg-white hover:bg-gray-100 text-teal-900 font-bold py-5 px-6 rounded-xl shadow-lg transition transform hover:scale-105 block"
