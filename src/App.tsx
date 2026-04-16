@@ -85,7 +85,7 @@ function App() {
       {/* Trust Bar */}
       <section className="bg-teal-900 py-4 px-4">
         <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-6 text-teal-100 text-sm">
-          <span>✓ Licensed Since 1987</span>
+          <span>✓ Licensed Since 1966</span>
           <span>✓ A-Rated Carriers</span>
           <span>✓ Same-Day Quotes</span>
           <span>✓ Barrier Island Experts</span>
@@ -98,7 +98,7 @@ function App() {
           <h3 className="text-3xl font-bold text-center text-teal-900 mb-4">
             Why Choose Us for Your Florida Home?
           </h3>
-          <p className="text-center text-gray-600 mb-12 text-lg">Protecting Florida homeowners since 1987</p>
+          <p className="text-center text-gray-600 mb-12 text-lg">Protecting Florida homeowners since 1966</p>
           
           <div className="grid md:grid-cols-3 gap-8">
             <div className="text-center p-8 rounded-2xl bg-white shadow-lg border border-gray-100">
@@ -180,7 +180,7 @@ function App() {
       <section className="py-16 px-4 bg-gray-900 text-white">
         <div className="max-w-5xl mx-auto">
           <h3 className="text-3xl font-bold text-center mb-12">Comprehensive Coverage Options</h3>
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             {/* Homeowners */}
             <div className="bg-gray-800 p-8 rounded-2xl">
               <h3 className="text-2xl font-bold text-yellow-400 mb-4">
@@ -188,13 +188,28 @@ function App() {
               </h3>
               <p className="text-gray-300 mb-4">
                 Full protection for your Florida home — from hurricanes to liability.
-                We shop multiple carriers to find the best rates.
               </p>
               <ul className="space-y-2 text-gray-200">
                 <li>✓ Coverage anywhere in Florida</li>
-                <li>✓ Hurricane & wind coverage included</li>
+                <li>✓ Hurricane & wind included</li>
                 <li>✓ Replacement cost options</li>
-                <li>✓ Same-day quotes available</li>
+                <li>✓ Same-day quotes</li>
+              </ul>
+            </div>
+
+            {/* Condo HO6 */}
+            <div className="bg-gray-800 p-8 rounded-2xl">
+              <h3 className="text-2xl font-bold text-yellow-400 mb-4">
+                🏢 Condo Insurance (HO6)
+              </h3>
+              <p className="text-gray-300 mb-4">
+                Protect your condo unit, personal property, and liability — even in high-rises.
+              </p>
+              <ul className="space-y-2 text-gray-200">
+                <li>✓ Unit owner coverage</li>
+                <li>✓ Loss assessment protection</li>
+                <li>✓ Personal property coverage</li>
+                <li>✓ Coastal condos welcome</li>
               </ul>
             </div>
 
@@ -204,11 +219,10 @@ function App() {
                 🌊 Flood Insurance
               </h3>
               <p className="text-gray-300 mb-4">
-                Don't wait for a storm — flood insurance has a 30-day waiting period.
-                We offer private flood options that often beat NFIP rates.
+                Don't wait — flood insurance has a 30-day waiting period. Private options available.
               </p>
               <ul className="space-y-2 text-gray-200">
-                <li>✓ Private flood options available</li>
+                <li>✓ Private flood options</li>
                 <li>✓ Often cheaper than NFIP</li>
                 <li>✓ Higher coverage limits</li>
                 <li>✓ Faster claims processing</li>
