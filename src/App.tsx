@@ -82,7 +82,7 @@ function App() {
             <div className="hidden md:block">
               <img 
                 src="https://images.unsplash.com/photo-1581579438747-104c53d7fbc5?w=600" 
-                alt="Happy family in front of their home"
+                alt="Florida homeowners"
                 className="rounded-2xl shadow-2xl"
               />
             </div>
