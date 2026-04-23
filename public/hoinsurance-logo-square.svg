@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <!-- Background -->
+  <rect width="200" height="200" fill="white"/>
+  
+  <!-- Shield shape -->
+  <path d="M100 18 L168 48 L168 118 Q168 162 100 182 Q32 162 32 118 L32 48 Z" fill="#0f766e"/>
+  
+  <!-- House inside shield -->
+  <polygon points="100,60 136,82 136,138 64,138 64,82" fill="white" opacity="0.95"/>
+  <!-- Roof -->
+  <polygon points="100,52 142,82 58,82" fill="#eab308"/>
+  <!-- Door -->
+  <rect x="88" y="110" width="24" height="28" fill="#0f766e" rx="3"/>
+  <!-- Window left -->
+  <rect x="70" y="90" width="16" height="16" fill="#0f766e" rx="2"/>
+  <!-- Window right -->
+  <rect x="114" y="90" width="16" height="16" fill="#0f766e" rx="2"/>
+</svg>
