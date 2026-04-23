@@ -1,4 +1,7 @@
+import { useState } from 'react'
+
 function App() {
+  const [showQuoteMenu, setShowQuoteMenu] = useState(false)
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -67,23 +70,67 @@ function App() {
                   <span className="text-lg">Sync My Policy</span>
                   <span className="block text-xs font-normal mt-1">We pull your info automatically</span>
                 </a>
-                <a
-                  href="https://hoinsurance.wufoo.com/forms/m96j1zb0kfqk62/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-white hover:bg-gray-100 text-teal-800 font-bold py-4 px-6 rounded-xl shadow-lg transition text-center"
-                >
-                  <span className="text-xl block mb-1">📝</span>
-                  <span>Start Quote</span>
-                  <span className="block text-xs font-normal">2 Minutes</span>
-                </a>
+                {/* Full Quote Form Dropdown */}
+                <div className="relative">
+                  <button
+                    onClick={() => setShowQuoteMenu(!showQuoteMenu)}
+                    className="w-full bg-white hover:bg-gray-100 text-teal-800 font-bold py-4 px-6 rounded-xl shadow-lg transition text-center"
+                  >
+                    <span className="text-xl block mb-1">📝</span>
+                    <span>Full Quote Form</span>
+                    <span className="block text-xs font-normal opacity-70">{showQuoteMenu ? '▲ Choose type' : '▼ Choose type'}</span>
+                  </button>
+                  {showQuoteMenu && (
+                    <div className="absolute z-50 top-full mt-2 left-0 right-0 bg-white rounded-xl shadow-2xl border border-teal-100 overflow-hidden">
+                      <a
+                        href="https://hoinsurance.wufoo.com/forms/tc-home-insurance-savings-form/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-teal-50 transition border-b border-gray-100"
+                        onClick={() => setShowQuoteMenu(false)}
+                      >
+                        <span className="text-2xl">🏠</span>
+                        <div className="text-left">
+                          <div className="font-bold text-teal-900 text-sm">Homeowners (HO3)</div>
+                          <div className="text-xs text-gray-500">Single family home</div>
+                        </div>
+                      </a>
+                      <a
+                        href="https://hoinsurance.wufoo.com/forms/condominium-owners-insurance-form/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-teal-50 transition border-b border-gray-100"
+                        onClick={() => setShowQuoteMenu(false)}
+                      >
+                        <span className="text-2xl">🏗️</span>
+                        <div className="text-left">
+                          <div className="font-bold text-teal-900 text-sm">Condo (HO6)</div>
+                          <div className="text-xs text-gray-500">Condominium owners</div>
+                        </div>
+                      </a>
+                      <a
+                        href="https://hoinsurance.wufoo.com/forms/get-my-flood-insurance/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-3 px-4 py-3 hover:bg-teal-50 transition"
+                        onClick={() => setShowQuoteMenu(false)}
+                      >
+                        <span className="text-2xl">🌊</span>
+                        <div className="text-left">
+                          <div className="font-bold text-teal-900 text-sm">Flood Insurance</div>
+                          <div className="text-xs text-gray-500">Private &amp; NFIP flood</div>
+                        </div>
+                      </a>
+                    </div>
+                  )}
+                </div>
                 <a
                   href="tel:800-616-1418"
                   className="bg-green-600 hover:bg-green-700 text-white font-bold py-4 px-6 rounded-xl shadow-lg transition text-center"
                 >
                   <span className="text-xl block mb-1">📞</span>
-                  <span>Call Now</span>
-                  <span className="block text-xs font-normal">Instant Help</span>
+                  <span>Call Us</span>
+                  <span className="block text-xs font-normal">800-616-1418</span>
                 </a>
               </div>
 
