@@ -58,7 +58,7 @@ function App() {
               </p>
 
               {/* Action Buttons */}
-              <div className="grid sm:grid-cols-3 gap-4 justify-center md:justify-start">
+              <div className="grid sm:grid-cols-3 gap-4 justify-center md:justify-start items-stretch">
                 <a
                   href="https://app.usecanopy.com/c/tomlinson-and-co"
                   target="_blank"
@@ -71,17 +71,17 @@ function App() {
                   <span className="block text-xs font-normal mt-1">We pull your info automatically</span>
                 </a>
                 {/* Full Quote Form Dropdown */}
-                <div className="relative">
+                <div className="relative" style={{zIndex: 100}}>
                   <button
                     onClick={() => setShowQuoteMenu(!showQuoteMenu)}
-                    className="w-full bg-white hover:bg-gray-100 text-teal-800 font-bold py-4 px-6 rounded-xl shadow-lg transition text-center"
+                    className="w-full bg-white hover:bg-gray-100 text-teal-800 font-bold py-4 px-6 rounded-xl shadow-lg transition text-center h-full min-h-[100px] flex flex-col items-center justify-center"
                   >
                     <span className="text-xl block mb-1">📝</span>
                     <span>Full Quote Form</span>
-                    <span className="block text-xs font-normal opacity-70">{showQuoteMenu ? '▲ Choose type' : '▼ Choose type'}</span>
+                    <span className="block text-xs font-normal opacity-70 mt-1">{showQuoteMenu ? '▲ Choose type' : '▼ Choose type'}</span>
                   </button>
                   {showQuoteMenu && (
-                    <div className="absolute z-50 top-full mt-2 left-0 right-0 bg-white rounded-xl shadow-2xl border border-teal-100 overflow-hidden">
+                    <div className="absolute top-full mt-2 left-0 w-64 bg-white rounded-xl shadow-2xl border border-teal-100 overflow-visible" style={{zIndex: 9999}}>
                       <a
                         href="https://hoinsurance.wufoo.com/forms/tc-home-insurance-savings-form/"
                         target="_blank"
