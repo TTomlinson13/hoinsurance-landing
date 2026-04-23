@@ -14,13 +14,30 @@ function App() {
         </div>
       </header>
 
-      {/* Hero Section with Happy Family Image */}
-      <section className="relative bg-gradient-to-br from-teal-800 via-teal-700 to-teal-900 overflow-hidden">
-        {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1600')" }}
-        ></div>
+      {/* Hero Section — CSS Animated Aerial Neighborhood */}
+      <section className="relative bg-teal-900 overflow-hidden">
+        {/* Animated background image — slow Ken Burns zoom/pan */}
+        <style>{`
+          @keyframes kenBurns {
+            0%   { transform: scale(1.0) translate(0%, 0%); }
+            25%  { transform: scale(1.08) translate(-1.5%, -1%); }
+            50%  { transform: scale(1.12) translate(-2%, 1%); }
+            75%  { transform: scale(1.08) translate(1%, 1.5%); }
+            100% { transform: scale(1.0) translate(0%, 0%); }
+          }
+          .hero-bg {
+            animation: kenBurns 30s ease-in-out infinite;
+            will-change: transform;
+          }
+        `}</style>
+        <div className="absolute inset-0 overflow-hidden">
+          <div
+            className="hero-bg absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: "url('/hero-neighborhood.jpg')", opacity: 0.45 }}
+          ></div>
+          {/* Teal gradient overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-br from-teal-900/80 via-teal-800/60 to-teal-900/70"></div>
+        </div>
 
         <div className="relative max-w-6xl mx-auto px-4 py-16 md:py-24">
           <div className="grid md:grid-cols-2 gap-8 items-center">
