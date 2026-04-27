@@ -158,6 +158,20 @@ function App() {
       </section>
 
       {/* Carriers Section */}
+      {/* Florida Coverage Map Section */}
+      <section className="py-12 px-4 bg-teal-900 text-white text-center">
+        <div className="max-w-5xl mx-auto">
+          <h3 className="text-3xl font-bold mb-2">Coverage Across All of Florida</h3>
+          <p className="text-teal-300 mb-6">From the Panhandle to the Keys — we protect homes in every corner of the Sunshine State.</p>
+          <img
+            src="/hero-florida-5cities-collage.jpg"
+            alt="Florida home insurance coverage - Fort Lauderdale, Orlando, Miami, Jacksonville, Miami Beach"
+            className="w-full rounded-2xl shadow-2xl"
+          />
+          <p className="text-teal-400 text-sm mt-4">Fort Lauderdale · Orlando · Miami · Jacksonville · Miami Beach · and everywhere in between</p>
+        </div>
+      </section>
+
       <section className="py-10 px-4 bg-white">
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-2xl font-bold text-teal-900 mb-3">
