@@ -403,6 +403,9 @@ function App() {
           <p className="text-xs mt-4">
             © {new Date().getFullYear()} Tomlinson & Co Inc. All rights reserved.
           </p>
+          <p className="text-xs mt-2">
+            <a href="/privacy-policy.html" className="text-gray-400 hover:text-white underline">Privacy Policy</a>
+          </p>
         </div>
       </footer>
     </div>
