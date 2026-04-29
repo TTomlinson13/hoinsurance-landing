@@ -7,8 +7,23 @@
   <meta name="description" content="Florida home insurance since 1966. We shop 50+ A-rated carriers and send everything in one email. Licensed Florida experts — get your free quote in minutes." />
   <!-- No-index this page — it's for paid traffic only -->
   <meta name="robots" content="noindex, nofollow" />
-  <!-- Facebook Pixel placeholder -->
-  <!-- FB_PIXEL_CODE_HERE -->
+  <!-- Facebook Pixel Code -->
+  <script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '580339493361761');
+  fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=580339493361761&ev=PageView&noscript=1"
+  /></noscript>
+  <!-- End Facebook Pixel Code -->
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a1a1a; background: #fff; }
@@ -243,5 +258,13 @@
   </p>
 </footer>
 
+<script>
+// Fire FB Lead event on form submit
+document.getElementById('leadForm').addEventListener('submit', function() {
+  if (typeof fbq !== 'undefined') {
+    fbq('track', 'Lead', { content_name: 'FL Home Insurance Quote', content_category: 'Homeowners Insurance' });
+  }
+});
+</script>
 </body>
 </html>
