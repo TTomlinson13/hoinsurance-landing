@@ -394,6 +394,20 @@ function App() {
         </div>
       </section>
 
+      {/* Sister Sites Bar */}
+      <div className="bg-teal-900 py-3 px-4">
+        <div className="max-w-5xl mx-auto text-center">
+          <span className="text-teal-300 text-sm mr-2">Also from Tomlinson &amp; Co:</span>
+          <a href="https://tomlinsonandco.com" target="_blank" rel="noopener noreferrer" className="text-white text-sm hover:text-teal-200 transition">Tomlinson &amp; Co (Parent Agency)</a>
+          <span className="text-teal-500 text-sm mx-2">·</span>
+          <a href="https://floridauto.com" target="_blank" rel="noopener noreferrer" className="text-white text-sm hover:text-teal-200 transition">Florida Auto Insurance</a>
+          <span className="text-teal-500 text-sm mx-2">·</span>
+          <a href="https://flawc.com" target="_blank" rel="noopener noreferrer" className="text-white text-sm hover:text-teal-200 transition">Florida Workers Comp</a>
+          <span className="text-teal-500 text-sm mx-2">·</span>
+          <a href="https://e-bikeins.com" target="_blank" rel="noopener noreferrer" className="text-white text-sm hover:text-teal-200 transition">E-Bike Insurance</a>
+        </div>
+      </div>
+
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-400 py-8 px-4">
         <div className="max-w-5xl mx-auto text-center">
