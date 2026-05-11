@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 function App() {
   const [showQuoteMenu, setShowQuoteMenu] = useState(false)
@@ -11,9 +12,12 @@ function App() {
             <h1 className="text-2xl font-bold text-teal-900">HOInsurance.com</h1>
             <p className="text-sm text-gray-600">Florida Homeowners & Flood Specialists</p>
           </div>
-          <a href="tel:800-616-1418" className="hidden sm:flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-bold transition">
-            📞 800-616-1418
-          </a>
+          <div className="flex items-center gap-4">
+            <Link to="/blog" className="hidden sm:inline text-teal-700 font-semibold hover:text-teal-900 transition">Blog</Link>
+            <a href="tel:800-616-1418" className="hidden sm:flex items-center gap-2 bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-bold transition">
+              📞 800-616-1418
+            </a>
+          </div>
         </div>
       </header>
 
