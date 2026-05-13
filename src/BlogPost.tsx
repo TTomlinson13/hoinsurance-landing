@@ -1,6 +1,35 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
+function JotformModal({ onClose }: { onClose: () => void }) {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = '' }
+  }, [])
+  return (
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center"
+      style={{ background: 'rgba(15,23,42,0.75)', backdropFilter: 'blur(4px)' }}
+      onClick={(e) => { if (e.target === e.currentTarget) onClose() }}
+    >
+      <div className="relative w-full max-w-2xl mx-4 rounded-2xl overflow-hidden shadow-2xl" style={{ maxHeight: '90vh' }}>
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 z-10 bg-white/90 hover:bg-white text-slate-700 rounded-full w-9 h-9 flex items-center justify-center text-xl font-bold shadow transition"
+          aria-label="Close"
+        >×</button>
+        <iframe
+          src={`https://form.jotform.com/261320971603148`}
+          title="Insurance Quote"
+          allow="geolocation; microphone; camera"
+          allowFullScreen
+          style={{ width: '100%', height: '80vh', border: 'none', display: 'block', background: '#fff' }}
+        />
+      </div>
+    </div>
+  )
+}
+
 interface Post {
   id: number
   slug: string
@@ -16,6 +45,7 @@ export default function BlogPost() {
   const [post, setPost] = useState<Post | null>(null)
   const [loading, setLoading] = useState(true)
   const [notFound, setNotFound] = useState(false)
+  const [showJotform, setShowJotform] = useState(false)
 
   useEffect(() => {
     fetch('/blog/posts.json')
@@ -156,14 +186,12 @@ export default function BlogPost() {
                   >
                     📞 Call 800-616-1418
                   </a>
-                  <a
-                    href="https://hoinsurance.wufoo.com/forms/m96j1zb0kfqk62/"
-                    target="_blank"
-                    rel="noopener noreferrer"
+                  <button
+                    onClick={() => setShowJotform(true)}
                     className="bg-yellow-400 hover:bg-yellow-500 text-teal-900 font-bold py-3 px-6 rounded-xl transition"
                   >
                     Get Free Quote →
-                  </a>
+                  </button>
                 </div>
               </div>
 
@@ -178,6 +206,7 @@ export default function BlogPost() {
         </>
       )}
 
+      {showJotform && <JotformModal onClose={() => setShowJotform(false)} />}
       {/* Footer */}
       <footer className="bg-gray-900 text-gray-400 py-8 px-4 mt-8">
         <div className="max-w-5xl mx-auto text-center">

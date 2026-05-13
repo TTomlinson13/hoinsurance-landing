@@ -1,8 +1,38 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+
+function JotformModal({ onClose }: { onClose: () => void }) {
+  useEffect(() => {
+    document.body.style.overflow = 'hidden'
+    return () => { document.body.style.overflow = '' }
+  }, [])
+  return (
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center"
+      style={{ background: 'rgba(15,23,42,0.75)', backdropFilter: 'blur(4px)' }}
+      onClick={(e) => { if (e.target === e.currentTarget) onClose() }}
+    >
+      <div className="relative w-full max-w-2xl mx-4 rounded-2xl overflow-hidden shadow-2xl" style={{ maxHeight: '90vh' }}>
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 z-10 bg-white/90 hover:bg-white text-slate-700 rounded-full w-9 h-9 flex items-center justify-center text-xl font-bold shadow transition"
+          aria-label="Close"
+        >×</button>
+        <iframe
+          src={`https://form.jotform.com/261320971603148`}
+          title="Insurance Quote"
+          allow="geolocation; microphone; camera"
+          allowFullScreen
+          style={{ width: '100%', height: '80vh', border: 'none', display: 'block', background: '#fff' }}
+        />
+      </div>
+    </div>
+  )
+}
 
 function App() {
   const [showQuoteMenu, setShowQuoteMenu] = useState(false)
+  const [showJotform, setShowJotform] = useState(false)
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -77,56 +107,13 @@ function App() {
                 {/* Full Quote Form Dropdown */}
                 <div className="relative" style={{zIndex: 100}}>
                   <button
-                    onClick={() => setShowQuoteMenu(!showQuoteMenu)}
+                    onClick={() => setShowJotform(true)}
                     className="w-full bg-white hover:bg-gray-100 text-teal-800 font-bold py-4 px-6 rounded-xl shadow-lg transition text-center h-full min-h-[100px] flex flex-col items-center justify-center"
                   >
                     <span className="text-xl block mb-1">📝</span>
                     <span>Full Quote Form</span>
-                    <span className="block text-xs font-normal opacity-70 mt-1">{showQuoteMenu ? '▲ Choose type' : '▼ Choose type'}</span>
+                    <span className="block text-xs font-normal opacity-70 mt-1">Home · Condo · Flood · Renters</span>
                   </button>
-                  {showQuoteMenu && (
-                    <div className="absolute top-full mt-2 left-0 w-64 bg-white rounded-xl shadow-2xl border border-teal-100 overflow-visible" style={{zIndex: 9999}}>
-                      <a
-                        href="https://hoinsurance.wufoo.com/forms/tc-home-insurance-savings-form/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 px-4 py-3 hover:bg-teal-50 transition border-b border-gray-100"
-                        onClick={() => setShowQuoteMenu(false)}
-                      >
-                        <span className="text-2xl">🏠</span>
-                        <div className="text-left">
-                          <div className="font-bold text-teal-900 text-sm">Homeowners (HO3)</div>
-                          <div className="text-xs text-gray-500">Single family home</div>
-                        </div>
-                      </a>
-                      <a
-                        href="https://hoinsurance.wufoo.com/forms/condominium-owners-insurance-form/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 px-4 py-3 hover:bg-teal-50 transition border-b border-gray-100"
-                        onClick={() => setShowQuoteMenu(false)}
-                      >
-                        <span className="text-2xl">🏗️</span>
-                        <div className="text-left">
-                          <div className="font-bold text-teal-900 text-sm">Condo (HO6)</div>
-                          <div className="text-xs text-gray-500">Condominium owners</div>
-                        </div>
-                      </a>
-                      <a
-                        href="https://hoinsurance.wufoo.com/forms/get-my-flood-insurance/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex items-center gap-3 px-4 py-3 hover:bg-teal-50 transition"
-                        onClick={() => setShowQuoteMenu(false)}
-                      >
-                        <span className="text-2xl">🌊</span>
-                        <div className="text-left">
-                          <div className="font-bold text-teal-900 text-sm">Flood Insurance</div>
-                          <div className="text-xs text-gray-500">Private &amp; NFIP flood</div>
-                        </div>
-                      </a>
-                    </div>
-                  )}
                 </div>
                 <a
                   href="tel:800-616-1418"
@@ -268,14 +255,12 @@ function App() {
                   Same-day quotes available
                 </li>
               </ul>
-              <a
-                href="https://hoinsurance.wufoo.com/forms/m96j1zb0kfqk62/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <button
+                onClick={() => setShowJotform(true)}
                 className="inline-block mt-8 bg-teal-600 hover:bg-teal-700 text-white font-bold py-4 px-8 rounded-xl shadow-lg transition"
               >
                 Get Your Free Quote →
-              </a>
+              </button>
             </div>
           </div>
         </div>
@@ -376,14 +361,12 @@ function App() {
             Get your free quote in minutes - or call for instant help.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="https://hoinsurance.wufoo.com/forms/m96j1zb0kfqk62/"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => setShowJotform(true)}
               className="bg-white text-green-700 font-bold text-xl py-4 px-10 rounded-xl shadow-lg hover:bg-gray-100 transition"
             >
               Get Free Quote →
-            </a>
+            </button>
             <a
               href="tel:800-616-1418"
               className="bg-green-800 hover:bg-green-900 text-white font-bold text-xl py-4 px-10 rounded-xl shadow-lg transition"
@@ -394,6 +377,7 @@ function App() {
         </div>
       </section>
 
+      {showJotform && <JotformModal onClose={() => setShowJotform(false)} />}
       {/* Sister Sites Bar */}
       <div className="bg-teal-900 py-3 px-4">
         <div className="max-w-5xl mx-auto text-center">
