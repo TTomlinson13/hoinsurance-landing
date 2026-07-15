@@ -19,7 +19,7 @@ function JotformModal({ onClose }: { onClose: () => void }) {
           aria-label="Close"
         >×</button>
         <iframe
-          src={`https://form.jotform.com/261320971603148`}
+          src={`https://form.jotform.com/261320720866151`}
           title="Insurance Quote"
           allow="geolocation; microphone; camera"
           allowFullScreen
