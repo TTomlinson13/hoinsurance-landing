@@ -51,6 +51,12 @@ function App() {
         </div>
       </header>
 
+      {/* News Banner */}
+      <div className="bg-amber-500 text-amber-900 text-center py-2 px-4 text-sm font-semibold">
+        🏠 Breaking: Citizens cuts rates 8.7% — 17 new carriers now in Florida. Is your 2026 quote current?{' '}
+        <button onClick={() => setShowJotform(true)} className="underline font-bold hover:text-amber-700">Get a free quote →</button>
+      </div>
+
       {/* Hero Section — CSS Animated Aerial Neighborhood */}
       <section className="relative bg-teal-900 overflow-hidden">
         {/* Animated background image — slow Ken Burns zoom/pan */}
