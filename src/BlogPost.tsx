@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
+import { getPost, formatDate } from './posts'
 
 function JotformModal({ onClose }: { onClose: () => void }) {
   useEffect(() => {
@@ -30,86 +31,18 @@ function JotformModal({ onClose }: { onClose: () => void }) {
   )
 }
 
-interface Post {
-  id: number
-  slug: string
-  title: string
-  date: string
-  summary: string
-  body: string
-  tags: string[]
-}
-
 export default function BlogPost() {
   const { slug } = useParams<{ slug: string }>()
-  const [post, setPost] = useState<Post | null>(null)
-  const [loading, setLoading] = useState(true)
-  const [notFound, setNotFound] = useState(false)
+  const post = getPost(slug)
   const [showJotform, setShowJotform] = useState(false)
 
+  /**
+   * JSON-LD and the document title are baked into each prerendered page by
+   * scripts/prerender.mjs, so a crawler that never runs JavaScript still sees
+   * them. This only keeps the title in sync during client-side navigation.
+   */
   useEffect(() => {
-    fetch('/blog/posts.json')
-      .then(r => r.json())
-      .then((data: Post[]) => {
-        const found = data.find(p => p.slug === slug)
-        if (found) {
-          setPost(found)
-        } else {
-          setNotFound(true)
-        }
-        setLoading(false)
-      })
-      .catch(() => {
-        setNotFound(true)
-        setLoading(false)
-      })
-  }, [slug])
-
-  // Inject JSON-LD schema once post loads
-  useEffect(() => {
-    if (!post) return
-    const existingScript = document.getElementById('blog-jsonld')
-    if (existingScript) existingScript.remove()
-
-    const script = document.createElement('script')
-    script.id = 'blog-jsonld'
-    script.type = 'application/ld+json'
-    script.textContent = JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
-      headline: post.title,
-      description: post.summary,
-      datePublished: post.date,
-      dateModified: post.date,
-      author: {
-        '@type': 'Organization',
-        name: 'HOInsurance.com — Tomlinson & Co',
-        url: 'https://hoinsurance.com'
-      },
-      publisher: {
-        '@type': 'Organization',
-        name: 'HOInsurance.com',
-        url: 'https://hoinsurance.com',
-        logo: {
-          '@type': 'ImageObject',
-          url: 'https://hoinsurance.com/hoinsurance-logo-square.svg'
-        }
-      },
-      mainEntityOfPage: {
-        '@type': 'WebPage',
-        '@id': `https://hoinsurance.com/blog/${post.slug}`
-      },
-      keywords: post.tags.join(', ')
-    })
-    document.head.appendChild(script)
-
-    // Also update page title
-    document.title = `${post.title} | HOInsurance.com`
-
-    return () => {
-      const s = document.getElementById('blog-jsonld')
-      if (s) s.remove()
-    }
+    if (post) document.title = `${post.title} | HOInsurance.com`
   }, [post])
 
   return (
@@ -130,18 +63,14 @@ export default function BlogPost() {
         </div>
       </header>
 
-      {loading && (
-        <div className="text-center text-gray-500 py-32">Loading…</div>
-      )}
-
-      {notFound && !loading && (
+      {!post && (
         <div className="text-center py-32">
           <h1 className="text-3xl font-bold text-gray-700 mb-4">Post Not Found</h1>
           <Link to="/blog" className="text-teal-600 underline hover:text-teal-800">← Back to Blog</Link>
         </div>
       )}
 
-      {post && !loading && (
+      {post && (
         <>
           {/* Back Link + Hero */}
           <section className="bg-teal-900 py-10 px-4">
@@ -157,7 +86,7 @@ export default function BlogPost() {
               </div>
               <h1 className="text-3xl md:text-4xl font-bold text-white leading-tight mb-3">{post.title}</h1>
               <p className="text-teal-300 text-sm">
-                {new Date(post.date + 'T00:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                {formatDate(post.date)}
                 {' · '}HOInsurance.com
               </p>
             </div>
@@ -216,7 +145,7 @@ export default function BlogPost() {
           <p className="text-xs mt-2">
             <Link to="/" className="text-gray-400 hover:text-white underline mr-4">Home</Link>
             <Link to="/blog" className="text-gray-400 hover:text-white underline mr-4">Blog</Link>
-            <a href="/privacy-policy.html" className="text-gray-400 hover:text-white underline">Privacy Policy</a>
+            <a href="/privacy-policy" className="text-gray-400 hover:text-white underline">Privacy Policy</a>
           </p>
         </div>
       </footer>

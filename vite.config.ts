@@ -28,11 +28,17 @@ const postLastmod = Object.fromEntries(
 const postPriority = Object.fromEntries(postRoutes.map((r) => [r, 0.6]));
 const postChangefreq = Object.fromEntries(postRoutes.map((r) => [r, 'monthly']));
 
-export default defineConfig({
+export default defineConfig(({ isSsrBuild }) => ({
   plugins: [
     react(),
     tailwindcss(),
-    sitemap({
+
+    /**
+     * Client build only. The sitemap plugin writes into dist/, so running it
+     * again during the SSR pass — whose output directory is dist-ssr — would
+     * regenerate the same file for no reason.
+     */
+    ...(isSsrBuild ? [] : [sitemap({
       hostname: 'https://hoinsurance.com',
 
       /**
@@ -101,6 +107,6 @@ export default defineConfig({
        * why the live robots.txt never matched the one in the repo.
        */
       generateRobotsTxt: false,
-    }),
+    })]),
   ],
-});
+}));

@@ -9,3 +9,6 @@ dist/node_modules/
 vite.config.js
 vite.config.d.ts
 tsconfig.tsbuildinfo
+
+# SSR bundle — an intermediate build artifact consumed by scripts/prerender.mjs
+dist-ssr/
