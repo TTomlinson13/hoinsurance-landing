@@ -55,10 +55,9 @@ const wordCount = (html) =>
 // ---------------------------------------------------------------------------
 
 /**
- * No PostalAddress: the site publishes no street address anywhere, and
- * inventing one would be worse than omitting it. Google needs a real address
- * for local rich results, so this is worth filling in once the agency's
- * business address is confirmed.
+ * The address must match the visible NAP block in src/Nap.tsx character for
+ * character, and both must match the Google Business Profile — Google
+ * cross-checks all three, and a mismatch is worse than an omission.
  */
 const AGENCY = {
   '@type': 'InsuranceAgency',
@@ -70,6 +69,14 @@ const AGENCY = {
   image: OG_IMAGE,
   telephone: PHONE,
   foundingDate: '1966',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '921 Douglas Ave #102',
+    addressLocality: 'Altamonte Springs',
+    addressRegion: 'FL',
+    postalCode: '32714',
+    addressCountry: 'US',
+  },
   description:
     'Independent insurance agency specializing in homeowners, condo and flood coverage, including coastal and barrier island properties many carriers decline. Primary market Florida; licensed in ten states.',
   areaServed: [

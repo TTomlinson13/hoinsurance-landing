@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import { posts, formatDate } from './posts'
+import Nap from './Nap'
 
 export default function Blog() {
   return (
@@ -76,6 +77,7 @@ export default function Blog() {
         <div className="max-w-5xl mx-auto text-center">
           <p className="text-lg text-white mb-2">Protecting Florida Homes — Even on Barrier Islands!</p>
           <p className="text-sm">HOInsurance.com • Florida Homeowners &amp; Flood Specialists<br/>A Tomlinson &amp; Co Agency</p>
+          <Nap />
           <p className="text-xs mt-4">© {new Date().getFullYear()} Tomlinson &amp; Co Inc. All rights reserved.</p>
           <p className="text-xs mt-2">
             <Link to="/" className="text-gray-400 hover:text-white underline mr-4">Home</Link>

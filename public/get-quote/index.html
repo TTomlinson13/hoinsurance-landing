@@ -411,11 +411,23 @@
     <!-- Footer -->
     <footer>
         <p>&copy; 2026 Tomlinson & Co Insurance. All rights reserved.</p>
+        <!--
+          Address and main phone must stay identical to the NAP in src/Nap.tsx
+          and the PostalAddress in scripts/prerender.mjs. Google cross-checks
+          the address on the page against the Business Profile and directory
+          citations, so a mismatch between them is worse than no address.
+        -->
+        <address style="font-style: normal;">
+            Tomlinson &amp; Co Inc.<br>
+            921 Douglas Ave #102, Altamonte Springs, FL 32714<br>
+            <a href="tel:800-616-1418">800-616-1418</a>
+            &nbsp;&middot;&nbsp;
+            Local: <a href="tel:407-337-1135">(407) 337-1135</a>
+        </address>
         <p>
-            <a href="/">Home</a> | 
-            <a href="/#privacy">Privacy</a> | 
-            <a href="/#terms">Terms</a> | 
-            <a href="/#contact">Contact: (407) 337-1135</a>
+            <a href="/">Home</a> |
+            <a href="/privacy-policy">Privacy</a> |
+            <a href="/blog">Florida Insurance News</a>
         </p>
         <p>Licensed Insurance Agent in FL, NC, GA, TX, NY, PA, OH, MI, IL, CA</p>
     </footer>
