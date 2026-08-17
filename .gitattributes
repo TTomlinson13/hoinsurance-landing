@@ -1,0 +1,21 @@
+# Normalise text files to LF in the repository.
+#
+# The site is built and served on Linux. Apache in particular can misparse an
+# .htaccess checked out with CRLF, because a trailing \r gets swallowed into
+# the directive value.
+* text=auto eol=lf
+
+# Never let these be rewritten on any platform.
+.htaccess       text eol=lf
+*.txt           text eol=lf
+*.html          text eol=lf
+*.json          text eol=lf
+*.xml           text eol=lf
+*.ts            text eol=lf
+*.tsx           text eol=lf
+*.css           text eol=lf
+
+# Binary — leave alone.
+*.png           binary
+*.jpg           binary
+*.ico           binary

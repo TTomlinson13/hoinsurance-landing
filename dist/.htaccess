@@ -1,5 +1,86 @@
 Options -MultiViews
 RewriteEngine On
+
+# ---------------------------------------------------------------------------
+# 1. Canonical host — strip www, so each page has exactly one URL.
+#
+#    www.hoinsurance.com and hoinsurance.com both answered 200 with no redirect
+#    between them and no canonical tag anywhere on the site, so every page
+#    existed at two addresses and Google had to guess. It indexed www; the
+#    sitemap and every OG tag declare the apex.
+#
+#    Deliberately NOT forcing HTTPS here: TLS terminates at Hostinger's edge
+#    CDN, so %{HTTPS} is unreliable at this layer and a naive rule risks a
+#    redirect loop. http -> https already works upstream.
+# ---------------------------------------------------------------------------
+RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+RewriteRule ^ https://%1%{REQUEST_URI} [R=301,L]
+
+# ---------------------------------------------------------------------------
+# 2. /get-quote — collapse the trailing-slash and index.html variants onto one
+#    canonical URL, then serve the file from it directly.
+#
+#    Left alone, mod_dir 301s /get-quote to /get-quote/, which means the URL in
+#    the sitemap is a redirect rather than a destination.
+#
+#    The second condition stops the rule re-firing once the URL is already
+#    canonical, which would loop.
+# ---------------------------------------------------------------------------
+RewriteCond %{THE_REQUEST} \s/+get-quote(/(index\.html)?)?[\s?] [NC]
+RewriteCond %{THE_REQUEST} !\s/+get-quote[\s?] [NC]
+RewriteRule ^ /get-quote [R=301,L]
+
+RewriteRule ^get-quote$ /get-quote/index.html [L]
+
+# ---------------------------------------------------------------------------
+# 3. Static pages: extensionless URL is canonical.
+#
+#    The sitemap generator normalises every route to its extensionless form, so
+#    that is the address crawlers are given and it has to be the one that
+#    answers 200. Previously /privacy-policy fell through to the SPA catch-all
+#    and rendered the homepage under a 200 — a soft 404.
+#
+#    THE_REQUEST holds the original request line and is not rewritten
+#    internally, so the redirect below fires only for genuine external requests
+#    and never for the internal rewrite that follows it. That is what keeps
+#    these two rules from ping-ponging.
+# ---------------------------------------------------------------------------
+RewriteCond %{THE_REQUEST} \s/+([^?\s]+)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+RewriteCond %{REQUEST_URI} !^/404
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^([^/]+?)/?$ /$1.html [L]
+
+# ---------------------------------------------------------------------------
+# 4. SPA routes -> index.html. The router has exactly three: /, /blog,
+#    /blog/:slug.
+#
+#    /blog needs an explicit rule. public/blog/ is a real directory because it
+#    holds posts.json, so the old generic !-d guard skipped it, Apache found no
+#    index file inside, and returned 403 Forbidden. The blog index was dead to
+#    every crawler and to anyone opening the URL directly — while still being
+#    listed in the sitemap.
+#
+#    The !-f guard keeps /blog/posts.json served as a real file; without it the
+#    slug rule would swallow the JSON the blog fetches at runtime.
+# ---------------------------------------------------------------------------
 RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.html [QSA,L]
+RewriteRule ^blog/?$ /index.html [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^blog/[A-Za-z0-9._-]+/?$ /index.html [L]
+
+# ---------------------------------------------------------------------------
+# 5. No catch-all.
+#
+#    The previous config rewrote every unmatched request to index.html, so the
+#    site had no 404 at all: bogus paths, missing assets, and files that simply
+#    did not exist (/llms.txt, /ai.txt, even /favicon.ico) all answered 200 with
+#    the homepage HTML. That is a soft 404 sitewide, and it meant a request for
+#    a missing file looked like a successful one to a crawler.
+#
+#    Real files and directories are still served normally; anything else now
+#    gets a genuine 404.
+# ---------------------------------------------------------------------------
+ErrorDocument 404 /404.html
