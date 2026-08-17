@@ -1,5 +1,6 @@
 # robots.txt — hoinsurance.com
-# Tomlinson & Co / HOInsurance.com — Florida homeowners, condo & flood insurance
+# Tomlinson & Co / HOInsurance.com — homeowners, condo & flood insurance
+# Primary market Florida; also licensed in NC, GA, TX, NY, PA, OH, MI, IL, CA
 #
 # Policy: fully open. We want both traditional search crawlers and AI
 # assistants to read, index, and cite this site.
