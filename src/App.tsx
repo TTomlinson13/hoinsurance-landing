@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import Nap from './Nap'
 
 function JotformModal({ onClose }: { onClose: () => void }) {
   useEffect(() => {
@@ -408,11 +409,12 @@ function App() {
             HOInsurance.com • Florida Homeowners & Flood Specialists<br/>
             A Tomlinson & Co Agency
           </p>
+          <Nap />
           <p className="text-xs mt-4">
             © {new Date().getFullYear()} Tomlinson & Co Inc. All rights reserved.
           </p>
           <p className="text-xs mt-2">
-            <a href="/privacy-policy.html" className="text-gray-400 hover:text-white underline">Privacy Policy</a>
+            <a href="/privacy-policy" className="text-gray-400 hover:text-white underline">Privacy Policy</a>
           </p>
         </div>
       </footer>

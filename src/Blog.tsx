@@ -1,31 +1,8 @@
-import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-
-interface Post {
-  id: number
-  slug: string
-  title: string
-  date: string
-  summary: string
-  body: string
-  tags: string[]
-}
+import { posts, formatDate } from './posts'
+import Nap from './Nap'
 
 export default function Blog() {
-  const [posts, setPosts] = useState<Post[]>([])
-  const [loading, setLoading] = useState(true)
-
-  useEffect(() => {
-    fetch('/blog/posts.json')
-      .then(r => r.json())
-      .then((data: Post[]) => {
-        const sorted = [...data].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
-        setPosts(sorted)
-        setLoading(false)
-      })
-      .catch(() => setLoading(false))
-  }, [])
-
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -56,9 +33,7 @@ export default function Blog() {
       {/* Post Grid */}
       <section className="py-14 px-4">
         <div className="max-w-6xl mx-auto">
-          {loading ? (
-            <div className="text-center text-gray-500 py-20">Loading posts…</div>
-          ) : posts.length === 0 ? (
+          {posts.length === 0 ? (
             <div className="text-center text-gray-500 py-20">No posts found.</div>
           ) : (
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -72,7 +47,7 @@ export default function Blog() {
                       ))}
                     </div>
                     <h2 className="text-lg font-bold text-teal-900 mb-2 leading-snug">{post.title}</h2>
-                    <p className="text-gray-500 text-xs mb-3">{new Date(post.date + 'T00:00:00').toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                    <p className="text-gray-500 text-xs mb-3">{formatDate(post.date)}</p>
                     <p className="text-gray-600 text-sm flex-1 mb-5">{post.summary}</p>
                     <Link
                       to={`/blog/${post.slug}`}
@@ -102,11 +77,12 @@ export default function Blog() {
         <div className="max-w-5xl mx-auto text-center">
           <p className="text-lg text-white mb-2">Protecting Florida Homes — Even on Barrier Islands!</p>
           <p className="text-sm">HOInsurance.com • Florida Homeowners &amp; Flood Specialists<br/>A Tomlinson &amp; Co Agency</p>
+          <Nap />
           <p className="text-xs mt-4">© {new Date().getFullYear()} Tomlinson &amp; Co Inc. All rights reserved.</p>
           <p className="text-xs mt-2">
             <Link to="/" className="text-gray-400 hover:text-white underline mr-4">Home</Link>
             <Link to="/blog" className="text-gray-400 hover:text-white underline mr-4">Blog</Link>
-            <a href="/privacy-policy.html" className="text-gray-400 hover:text-white underline">Privacy Policy</a>
+            <a href="/privacy-policy" className="text-gray-400 hover:text-white underline">Privacy Policy</a>
           </p>
         </div>
       </footer>

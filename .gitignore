@@ -3,3 +3,12 @@ dist/node_modules/
 .pnpm-store/
 *.log
 .DS_Store
+
+# Build artifacts of vite.config.ts — Vite resolves vite.config.js BEFORE
+# vite.config.ts, so a stale compiled copy silently overrides the real config.
+vite.config.js
+vite.config.d.ts
+tsconfig.tsbuildinfo
+
+# SSR bundle — an intermediate build artifact consumed by scripts/prerender.mjs
+dist-ssr/
